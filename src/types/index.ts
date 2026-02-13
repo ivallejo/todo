@@ -1,33 +1,25 @@
-/**
- * Interfaz que representa una tarea en la aplicación
- */
+// Tipo que representa una tarea
 export interface Todo {
-  id: number;
+  id: string;
   text: string;
   completed: boolean;
 }
 
-/**
- * Props para el componente TodoItem
- */
+// Props para el componente TodoItem
 export interface TodoItemProps {
   todo: Todo;
-  onToggle: (id: number) => void;
-  onDelete: (id: number) => void;
+  onToggle: (id: string) => void;
+  onDelete: (id: string) => void;
 }
 
-/**
- * Props para el componente AddTodo
- */
+// Props para el componente AddTodo
 export interface AddTodoProps {
   onAdd: (text: string) => void;
 }
 
-/**
- * Props para el componente TodoList
- */
+// Props para el componente TodoList
 export interface TodoListProps {
   todos: Todo[];
-  onToggle: (id: number) => void;
-  onDelete: (id: number) => void;
+  onToggle: (id: string) => void;
+  onDelete: (id: string) => void;
 }

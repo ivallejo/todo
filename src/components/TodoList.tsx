@@ -1,10 +1,7 @@
 import { TodoListProps } from '../types';
 import { TodoItem } from './TodoItem';
 
-/**
- * Componente que renderiza la lista de tareas
- * Recibe las tareas y las funciones de manejo como props
- */
+// Muestra la lista de tareas
 export function TodoList({ todos, onToggle, onDelete }: TodoListProps) {
   if (todos.length === 0) {
     return (

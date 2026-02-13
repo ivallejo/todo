@@ -1,10 +1,7 @@
 import { useState, type FormEvent } from 'react';
 import { AddTodoProps } from '../types';
 
-/**
- * Componente para añadir nuevas tareas
- * Maneja el formulario de entrada de texto
- */
+// Formulario para agregar nuevas tareas
 export function AddTodo({ onAdd }: AddTodoProps) {
   const [inputValue, setInputValue] = useState('');
 

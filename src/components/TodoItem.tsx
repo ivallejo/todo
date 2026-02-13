@@ -1,9 +1,6 @@
 import { TodoItemProps } from '../types';
 
-/**
- * Componente que renderiza una tarea individual
- * Muestra el texto con funcionalidad de marcar como completada y eliminar
- */
+// Muestra una tarea individual
 export function TodoItem({ todo, onToggle, onDelete }: TodoItemProps) {
   return (
     <li className="flex items-center justify-between p-4 bg-white rounded-lg shadow-md transition-all duration-200 hover:shadow-lg hover:-translate-y-0.5">

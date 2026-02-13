@@ -1,26 +1,19 @@
 import { useState, useCallback } from 'react';
 import { Todo } from '../types';
 
-/**
- * Hook personalizado para gestionar el estado de las tareas
- * Maneja las operaciones CRUD básicas: crear, leer, actualizar, eliminar
- */
+// Hook para manejar las tareas
 export function useTodos() {
-  // Estado inicial con algunas tareas de ejemplo
+  // Lista de tareas
   const [todos, setTodos] = useState<Todo[]>([
-    { id: 1, text: 'Aprender TypeScript', completed: true },
-    { id: 2, text: 'Practicar React Hooks', completed: false },
-    { id: 3, text: 'Crear proyecto para entrevista', completed: false },
+    { id: '1', text: 'Aprender TypeScript', completed: true },
+    { id: '2', text: 'Practicar React Hooks', completed: false },
+    { id: '3', text: 'Crear proyecto para entrevista', completed: false },
   ]);
 
-  // Generador de IDs únicos
-  const generateId = useCallback(() => {
-    return Math.max(0, ...todos.map(t => t.id)) + 1;
-  }, [todos]);
+  // Crea un ID único para cada tarea
+  const generateId = () => crypto.randomUUID();
 
-  /**
-   * Añade una nueva tarea
-   */
+  // Añadir nueva tarea
   const addTodo = useCallback((text: string) => {
     if (text.trim() === '') return;
 
@@ -33,10 +26,8 @@ export function useTodos() {
     setTodos(prevTodos => [...prevTodos, newTodo]);
   }, [generateId]);
 
-  /**
-   * Alterna el estado de completado de una tarea
-   */
-  const toggleTodo = useCallback((id: number) => {
+  // Marcar tarea como completada o no
+  const toggleTodo = useCallback((id: string) => {
     setTodos(prevTodos =>
       prevTodos.map(todo =>
         todo.id === id ? { ...todo, completed: !todo.completed } : todo
@@ -44,10 +35,8 @@ export function useTodos() {
     );
   }, []);
 
-  /**
-   * Elimina una tarea
-   */
-  const deleteTodo = useCallback((id: number) => {
+  // Eliminar tarea
+  const deleteTodo = useCallback((id: string) => {
     setTodos(prevTodos => prevTodos.filter(todo => todo.id !== id));
   }, []);
 

@@ -2,14 +2,11 @@ import { useTodos } from './hooks/useTodos';
 import { AddTodo } from './components/AddTodo';
 import { TodoList } from './components/TodoList';
 
-/**
- * Componente principal de la aplicación
- * Gestiona el estado global de las tareas
- */
+// Componente principal de la app
 function App() {
   const { todos, addTodo, toggleTodo, deleteTodo } = useTodos();
 
-  // Calcular estadísticas
+  // Contadores de tareas
   const totalTodos = todos.length;
   const completedTodos = todos.filter(t => t.completed).length;
   const pendingTodos = totalTodos - completedTodos;
