@@ -17,6 +17,13 @@ export interface AddTodoProps {
   onAdd: (text: string) => void;
 }
 
+// Props para el componente Header
+export interface TodoStatsProps {
+  total: number;
+  completed: number;
+  pending: number;
+}
+
 // Props para el componente TodoList
 export interface TodoListProps {
   todos: Todo[];
